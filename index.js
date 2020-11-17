@@ -1,7 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
-
+app.use(express.static('build'))
 const app = express()
 let persons = [
     {
@@ -45,6 +45,7 @@ let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getD
 
 app.use(morgan('tiny'))
 app.use(morganLogger)
+
 
 app.get('/api/persons', (request, response) => {
     response.json(persons)
